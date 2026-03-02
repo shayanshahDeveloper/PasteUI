@@ -27,10 +27,10 @@ export const Navbar = () => {
         <nav className={`fixed top-0 left-0 right-0 z-50 border-b border-black/10 dark:border-white/10 bg-background/80 ${!isSearchOpen ? "backdrop-blur-md" : ""}`}>
             <div className="container mx-auto px-4 h-16 flex items-center justify-between">
                 <Link href="/" className="flex items-center gap-2 group">
-                    <div className="p-2 bg-primary rounded-lg group-hover:rotate-12 transition-transform duration-300">
-                        <Copy className="w-5 h-5 text-primary-foreground" />
+                    <div className="p-1.5 bg-primary/10 dark:bg-white/5 rounded-xl border border-primary/20">
+                        <img src="/favicon.png" alt="PasteUI Logo" className="w-6 h-6 object-contain" />
                     </div>
-                    <span className="text-xl font-bold tracking-tight">PasteUI</span>
+                    <span className="text-xl font-black tracking-tighter">PasteUI</span>
                 </Link>
 
                 {/* Desktop Nav */}

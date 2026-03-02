@@ -17,6 +17,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "PasteUI | Free Tailwind CSS Components",
   description: "Copy-paste premium, open-source Tailwind CSS components for your Next.js and React projects. Build stunning UIs in record time.",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({

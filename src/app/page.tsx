@@ -16,17 +16,17 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center gap-8">
             <div className="flex items-center gap-2">
-              <div className="p-1.5 bg-primary rounded-md">
-                <Copy className="w-4 h-4 text-primary-foreground" />
+              <div className="p-1.5 bg-primary/10 dark:bg-white/5 rounded-xl border border-primary/20">
+                <img src="/favicon.png" alt="PasteUI Logo" className="w-6 h-6 object-contain" />
               </div>
-              <span className="text-lg font-bold tracking-tight">PasteUI</span>
+              <span className="text-lg font-black tracking-tighter text-foreground">PasteUI</span>
             </div>
 
             <div className="flex gap-8 text-sm text-neutral-500 dark:text-neutral-400">
               <Link href="/components" className="hover:text-foreground transition-colors">Components</Link>
               <Link href="/privacy" className="hover:text-foreground transition-colors">Privacy</Link>
               <Link href="/terms" className="hover:text-foreground transition-colors">Terms</Link>
-              <a href="https://twitter.com" className="hover:text-foreground transition-colors">Twitter</a>
+              <Link href="/twitter" className="hover:text-foreground transition-colors">Twitter</Link>
             </div>
 
             <p className="text-sm text-neutral-500 flex items-center gap-1">

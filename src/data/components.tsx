@@ -160,6 +160,40 @@ const NotificationPreview = () => {
     );
 }
 
+const AvatarGroupPreview = () => {
+    return (
+        <div className="flex -space-x-3 overflow-hidden p-2">
+            {[1, 2, 3, 4].map((i) => (
+                <div key={i} className="inline-block h-8 w-8 rounded-full ring-2 ring-background bg-primary/20 border border-primary/30 flex items-center justify-center text-[8px] font-black text-primary">
+                    U{i}
+                </div>
+            ))}
+            <div className="inline-block h-8 w-8 rounded-full ring-2 ring-background bg-black/5 dark:bg-white/10 flex items-center justify-center text-[8px] font-black text-neutral-500">
+                +9
+            </div>
+        </div>
+    );
+}
+
+const MarqueePreview = () => {
+    return (
+        <div className="w-full overflow-hidden bg-black/[0.02] dark:bg-white/[0.01] py-3 rounded-xl border border-black/[0.03] select-none">
+            <div className="flex w-[200%] animate-marquee">
+                <div className="flex justify-around w-full shrink-0 items-center gap-4 px-4">
+                    {['APPLE', 'META', 'GOOGLE', 'OPENAI', 'TESLA'].map((logo) => (
+                        <span key={logo} className="text-[10px] font-black tracking-tighter text-neutral-400 grayscale">{logo}</span>
+                    ))}
+                </div>
+                <div className="flex justify-around w-full shrink-0 items-center gap-4 px-4">
+                    {['APPLE', 'META', 'GOOGLE', 'OPENAI', 'TESLA'].map((logo) => (
+                        <span key={logo} className="text-[10px] font-black tracking-tighter text-neutral-400 grayscale">{logo}</span>
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
+}
+
 const FAQItem = ({ q, a }: { q: string, a: string }) => {
     const [isOpen, setIsOpen] = React.useState(false);
     return (
@@ -1044,6 +1078,172 @@ export const componentsData: UIComponent[] = [
                     <div className="bg-white/5 border border-white/10 px-3 py-6 rounded-xl text-[10px] text-neutral-400">Message...</div>
                     <button className="w-full py-2.5 bg-primary text-white text-[10px] font-black rounded-xl shadow-lg">Send</button>
                 </div>
+            </div>
+        )
+    },
+    {
+        id: "avatar-stack",
+        name: "Avatar Stack",
+        description: "Overlapping profile pictures for 'Trusted By' or team sections.",
+        category: "Badges",
+        code: `<div className="flex -space-x-3 overflow-hidden">
+  {[1, 2, 3, 4].map((i) => (
+    <img key={i} className="inline-block h-10 w-10 rounded-full ring-2 ring-white" src={\`/avatars/user-\${i}.jpg\`} alt="" />
+  ))}
+  <div className="flex items-center justify-center h-10 w-10 rounded-full ring-2 ring-white bg-neutral-100 text-xs font-bold">+12</div>
+</div>`,
+        preview: <AvatarGroupPreview />
+    },
+    {
+        id: "logo-marquee",
+        name: "Logo Marquee",
+        description: "Infinite scrolling brand logos with smooth CSS animation.",
+        category: "Landing Pages",
+        code: `<div className="relative flex overflow-x-hidden group bg-black/5 py-10">
+  <div className="animate-marquee whitespace-nowrap flex gap-16">
+    {['Apple', 'Google', 'Meta', 'Amazon', 'Microsoft'].map(logo => (
+      <span key={logo} className="text-4xl font-black opacity-30 group-hover:opacity-100 transition-opacity">{logo}</span>
+    ))}
+  </div>
+  <div className="absolute top-0 animate-marquee2 whitespace-nowrap flex gap-16">
+    {['Apple', 'Google', 'Meta', 'Amazon', 'Microsoft'].map(logo => (
+      <span key={logo} className="text-4xl font-black opacity-30 group-hover:opacity-100 transition-opacity">{logo}</span>
+    ))}
+  </div>
+</div>`,
+        preview: <MarqueePreview />
+    },
+    {
+        id: "pricing-vibrant",
+        name: "Vibrant Pricing",
+        description: "Vertical pricing card with high-impact gradient and active state.",
+        category: "Landing Pages",
+        code: `<div className="p-10 bg-gradient-to-br from-primary to-secondary rounded-[3rem] text-white shadow-2xl relative overflow-hidden">
+  <div className="absolute top-0 right-0 p-6 bg-white/20 rounded-bl-3xl font-black text-sm uppercase">Popular</div>
+  <h3 className="text-3xl font-black">Professional</h3>
+  <div className="text-7xl font-black my-8">$49<span className="text-xl opacity-60">/mo</span></div>
+  <ul className="space-y-4 mb-10 opacity-90 font-bold">
+    {['Unlimited Projects', 'Priority Support', 'Custom Domain'].map(f => <li key={f}>✓ {f}</li>)}
+  </ul>
+  <button className="w-full py-5 bg-white text-primary font-black rounded-2xl shadow-xl hover:scale-105 transition-all">Get Started</button>
+</div>`,
+        preview: (
+            <div className="p-6 bg-gradient-to-br from-primary to-secondary rounded-[2rem] text-white w-full max-w-[240px] shadow-xl relative overflow-hidden">
+                <div className="text-sm font-black mb-1">Growth</div>
+                <div className="text-3xl font-black mb-4">$49</div>
+                <div className="space-y-1.5 mb-6">
+                    {['Unlimited', 'Priority'].map(f => (
+                        <div key={f} className="text-[9px] font-bold opacity-80 flex gap-1"><span>✓</span> {f}</div>
+                    ))}
+                </div>
+                <button className="w-full py-2 bg-white text-primary text-[10px] font-black rounded-xl">Upgrade</button>
+            </div>
+        )
+    },
+    {
+        id: "testimonial-glass",
+        name: "Glass Testimonial",
+        description: "Elegant testimonial card with blurred profile background and star ratings.",
+        category: "Landing Pages",
+        code: `<div className="p-8 bg-white/5 backdrop-blur-xl border border-white/10 rounded-[2.5rem] shadow-2xl">
+  <div className="flex gap-1 mb-4 text-amber-400">★★★★★</div>
+  <p className="text-xl font-bold italic opacity-90 leading-relaxed mb-6">"This library changed how we build prototypes."</p>
+  <div className="flex items-center gap-4">
+    <div className="w-12 h-12 bg-primary/20 rounded-full" />
+    <div>
+      <div className="font-black">Jane Cooper</div>
+      <div className="text-sm opacity-50 font-bold">CEO at PixelFlow</div>
+    </div>
+  </div>
+</div>`,
+        preview: (
+            <div className="p-4 bg-white/5 border border-white/10 rounded-3xl w-full max-w-[280px] shadow-lg">
+                <div className="flex gap-0.5 mb-2 text-amber-400 text-[8px]">★★★★★</div>
+                <div className="text-[10px] font-bold italic mb-4 leading-tight">"Beautifully crafted UI."</div>
+                <div className="flex items-center gap-2">
+                    <div className="w-6 h-6 bg-primary/20 rounded-full" />
+                    <div>
+                        <div className="text-[8px] font-black">Jane C.</div>
+                        <div className="text-[6px] opacity-40 uppercase">CEO</div>
+                    </div>
+                </div>
+            </div>
+        )
+    },
+    {
+        id: "bento-advanced",
+        name: "Bento Advanced",
+        description: "Complex grid with mixed span and inner glass effects.",
+        category: "Landing Pages",
+        code: `<div className="grid grid-cols-6 gap-4">
+  <div className="col-span-4 bg-primary/10 rounded-3xl p-10">Large Item</div>
+  <div className="col-span-2 bg-black/5 rounded-3xl p-10">Small Item</div>
+  <div className="col-span-2 bg-black/5 rounded-3xl p-10">Small Item</div>
+  <div className="col-span-4 bg-secondary/10 rounded-3xl p-10">Large Item</div>
+</div>`,
+        preview: (
+            <div className="grid grid-cols-3 gap-1.5 w-full max-w-[300px] scale-90 origin-top-left">
+                <div className="col-span-2 h-16 bg-primary/10 rounded-xl border border-primary/20 flex items-center justify-center text-[8px] font-black">40% Growth</div>
+                <div className="col-span-1 h-16 bg-black/5 rounded-xl border border-black/10" />
+                <div className="col-span-1 h-16 bg-black/5 rounded-xl border border-black/10" />
+                <div className="col-span-2 h-16 bg-secondary/10 rounded-xl border border-secondary/20" />
+            </div>
+        )
+    },
+    {
+        id: "nav-floating",
+        name: "Floating Navbar",
+        description: "A sleek, centered navbar with glassmorphism and active indicators.",
+        category: "Headers",
+        code: `<nav className="fixed top-6 left-1/2 -translate-x-1/2 px-8 py-4 bg-white/5 backdrop-blur-2xl border border-white/10 rounded-full flex gap-8 items-center shadow-2xl z-50">
+  <div className="font-black">PasteUI</div>
+  <div className="flex gap-6 font-bold text-sm opacity-60">
+    <a href="#" className="hover:opacity-100">Features</a>
+    <a href="#" className="hover:opacity-100">Pricing</a>
+    <a href="#" className="hover:opacity-100">Docs</a>
+  </div>
+  <button className="bg-primary text-white px-5 py-2 rounded-full font-black text-sm">Join</button>
+</nav>`,
+        preview: (
+            <div className="px-4 py-2 bg-white/5 border border-white/10 rounded-full flex gap-4 items-center shadow-lg scale-90">
+                <div className="text-[10px] font-black">PasteUI</div>
+                <div className="flex gap-2 text-[8px] font-bold opacity-40">
+                    <span>Docs</span>
+                    <span>Plans</span>
+                </div>
+                <div className="w-6 h-6 bg-primary rounded-full" />
+            </div>
+        )
+    },
+    {
+        id: "pricing-comparison",
+        name: "Pricing Comparison",
+        description: "A detailed feature comparison table for SaaS landing pages.",
+        category: "Landing Pages",
+        code: `<div className="w-full max-w-5xl mx-auto overflow-hidden border border-black/5 rounded-3xl">
+  <table className="w-full text-left">
+    <thead>
+      <tr className="bg-black/5"><th className="p-6">Feature</th><th>Free</th><th>Pro</th></tr>
+    </thead>
+    <tbody className="divide-y divide-black/5">
+      {['API Access', 'Custom CSS', 'SSO'].map(f => (
+        <tr key={f}><td className="p-6 font-bold">{f}</td><td>-</td><td>✓</td></tr>
+      ))}
+    </tbody>
+  </table>
+</div>`,
+        preview: (
+            <div className="w-full max-w-[320px] rounded-2xl border border-black/10 overflow-hidden scale-75 origin-top-left shadow-xl bg-background">
+                <div className="p-3 bg-black/5 border-b border-black/10 flex justify-between font-black text-[10px]">
+                    <div className="w-1/2">Feature</div>
+                    <div>Pro</div>
+                </div>
+                {['API', 'Auth', 'SSO'].map(f => (
+                    <div key={f} className="p-3 border-b border-black/5 flex justify-between text-[8px] font-bold">
+                        <div className="w-1/2 opacity-60">{f}</div>
+                        <div className="text-primary font-black">✓</div>
+                    </div>
+                ))}
             </div>
         )
     }
