@@ -162,13 +162,17 @@ const NotificationPreview = () => {
 
 const AvatarGroupPreview = () => {
     return (
-        <div className="flex -space-x-3 overflow-hidden p-2">
-            {[1, 2, 3, 4].map((i) => (
-                <div key={i} className="inline-block h-8 w-8 rounded-full ring-2 ring-background bg-primary/20 border border-primary/30 flex items-center justify-center text-[8px] font-black text-primary">
-                    U{i}
-                </div>
+        <div className="flex -space-x-4 overflow-hidden p-4">
+            {[68, 32, 12, 33].map((id, i) => (
+                <img
+                    key={i}
+                    className="relative h-12 w-12 md:h-10 md:w-10 rounded-full ring-4 ring-background object-cover bg-neutral-100 hover:scale-110 hover:z-30 transition-all cursor-pointer"
+                    style={{ zIndex: 10 - i }}
+                    src={`https://i.pravatar.cc/100?img=${id}`}
+                    alt={`User ${i + 1}`}
+                />
             ))}
-            <div className="inline-block h-8 w-8 rounded-full ring-2 ring-background bg-black/5 dark:bg-white/10 flex items-center justify-center text-[8px] font-black text-neutral-500">
+            <div className="relative h-12 w-12 md:h-10 md:w-10 rounded-full ring-4 ring-background bg-primary flex items-center justify-center text-[12px] md:text-[10px] font-black text-white shadow-xl hover:scale-110 hover:z-30 transition-all cursor-pointer z-0">
                 +9
             </div>
         </div>
@@ -189,6 +193,78 @@ const MarqueePreview = () => {
                         <span key={logo} className="text-[10px] font-black tracking-tighter text-neutral-400 grayscale">{logo}</span>
                     ))}
                 </div>
+            </div>
+        </div>
+    );
+}
+
+const SkeletonPreview = () => {
+    return (
+        <div className="w-full max-w-[240px] space-y-3">
+            <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-black/5 dark:bg-white/5 animate-pulse" />
+                <div className="flex-1 space-y-2">
+                    <div className="h-2 w-3/4 bg-black/10 dark:bg-white/10 rounded animate-pulse" />
+                    <div className="h-2 w-1/2 bg-black/10 dark:bg-white/10 rounded animate-pulse" />
+                </div>
+            </div>
+            <div className="h-24 w-full bg-black/5 dark:bg-white/5 rounded-2xl animate-pulse" />
+        </div>
+    );
+}
+
+const PricingTogglePreview = () => {
+    const [isYearly, setIsYearly] = React.useState(false);
+    return (
+        <div className="w-full max-w-[280px] p-6 bg-black/[0.02] dark:bg-white/[0.01] border border-black/[0.05] rounded-[2.5rem] text-center">
+            <div className="flex bg-black/5 p-1 rounded-xl w-fit mx-auto mb-6">
+                <button onClick={() => setIsYearly(false)} className={`px-4 py-1 text-[10px] font-black rounded-lg transition-all ${!isYearly ? 'bg-background shadow-sm text-primary' : 'text-neutral-500'}`}>Monthly</button>
+                <button onClick={() => setIsYearly(true)} className={`px-4 py-1 text-[10px] font-black rounded-lg transition-all ${isYearly ? 'bg-background shadow-sm text-primary' : 'text-neutral-500'}`}>Yearly</button>
+            </div>
+            <div className="text-3xl font-black mb-1">{isYearly ? '$290' : '$29'}</div>
+            <div className="text-[10px] text-neutral-500 font-bold uppercase tracking-widest leading-none mb-6">{isYearly ? 'per year' : 'per month'}</div>
+            <button className="w-full py-3 bg-primary text-white text-[10px] font-black rounded-xl">Get Started</button>
+        </div>
+    );
+}
+
+const StatsCounterPreview = () => {
+    return (
+        <div className="grid grid-cols-2 gap-4 w-full max-w-[300px]">
+            {[
+                { label: 'Users', val: '12K+', color: 'text-primary' },
+                { label: 'Rating', val: '4.9/5', color: 'text-amber-500' }
+            ].map(stat => (
+                <div key={stat.label} className="p-4 bg-black/[0.02] border border-black/[0.05] rounded-3xl text-center">
+                    <div className={`text-xl font-black ${stat.color}`}>{stat.val}</div>
+                    <div className="text-[9px] font-bold text-neutral-500 uppercase tracking-tighter">{stat.label}</div>
+                </div>
+            ))}
+        </div>
+    );
+}
+
+const TrustedByPreview = () => {
+    return (
+        <div className="flex flex-col items-center gap-4 py-6">
+            <div className="flex -space-x-3 overflow-hidden">
+                {[68, 32, 12, 33, 47].map((id, i) => (
+                    <img
+                        key={i}
+                        className="relative h-10 w-10 rounded-full border-2 border-background object-cover bg-neutral-100 ring-1 ring-black/5 hover:scale-110 transition-transform cursor-pointer z-10 hover:z-20"
+                        src={`https://i.pravatar.cc/100?img=${id}`}
+                        alt="User"
+                    />
+                ))}
+                <div className="relative h-10 w-10 rounded-full border-2 border-background bg-[#1e293b] flex items-center justify-center text-[10px] font-black text-white shadow-xl hover:scale-110 transition-transform cursor-pointer z-10 hover:z-20">
+                    +2k
+                </div>
+            </div>
+            <div className="flex items-center gap-3">
+                <div className="flex gap-0.5 text-amber-500 text-xs">
+                    {[1, 2, 3, 4, 5].map(s => <span key={s}>★</span>)}
+                </div>
+                <span className="text-[11px] font-bold text-neutral-500">Trusted by 2,000+ creators</span>
             </div>
         </div>
     );
@@ -423,6 +499,16 @@ export const componentsData: UIComponent[] = [
         category: "Typography",
         code: `<h2 className="text-4xl font-black tracking-tight"><span className="text-primary mr-2">//</span>Main Feature</h2>`,
         preview: <h2 className="text-xl font-black tracking-tight text-foreground"><span className="text-primary mr-2">//</span>Main Feature</h2>
+    },
+    {
+        id: "text-gradient-animate",
+        name: "Vibrant Heading",
+        description: "Eye-catching multi-gradient text for hero sections.",
+        category: "Typography",
+        code: `<h1 className="text-7xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-primary bg-[length:200%_auto] animate-gradient">
+  Supercharge your UI.
+</h1>`,
+        preview: <h1 className="text-2xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-primary">Creative Design</h1>
     },
 
     // --- DAISY-INSPIRED MOCKUPS ---
@@ -1005,6 +1091,22 @@ export const componentsData: UIComponent[] = [
         preview: <StarsPreview />
     },
     {
+        id: "premium-skeleton",
+        name: "Premium Skeleton",
+        description: "Sophisticated placeholder loaders for smooth state transitions.",
+        category: "Feedback",
+        code: `<div className="space-y-4 animate-pulse">
+  <div className="flex items-center gap-4">
+    <div className="w-12 h-12 bg-black/5 rounded-full" />
+    <div className="flex-1 space-y-2">
+      <div className="h-3 w-1/4 bg-black/5 rounded" />
+      <div className="h-3 w-3/4 bg-black/5 rounded" />
+    </div>
+  </div>
+</div>`,
+        preview: <SkeletonPreview />
+    },
+    {
         id: "otp-input",
         name: "Security OTP",
         description: "Modern 6-digit verification code input fields.",
@@ -1086,11 +1188,19 @@ export const componentsData: UIComponent[] = [
         name: "Avatar Stack",
         description: "Overlapping profile pictures for 'Trusted By' or team sections.",
         category: "Badges",
-        code: `<div className="flex -space-x-3 overflow-hidden">
-  {[1, 2, 3, 4].map((i) => (
-    <img key={i} className="inline-block h-10 w-10 rounded-full ring-2 ring-white" src={\`/avatars/user-\${i}.jpg\`} alt="" />
+        code: `<div className="flex -space-x-4 overflow-hidden">
+  {[32, 12, 47, 68].map((id, i) => (
+    <img
+      key={id}
+      className="relative h-12 w-12 rounded-full ring-4 ring-white dark:ring-neutral-900 object-cover hover:scale-110 hover:z-30 transition-all cursor-pointer"
+      style={{ zIndex: 10 - i }}
+      src={\`https://i.pravatar.cc/100?img=\${id}\`}
+      alt="User Profile"
+    />
   ))}
-  <div className="flex items-center justify-center h-10 w-10 rounded-full ring-2 ring-white bg-neutral-100 text-xs font-bold">+12</div>
+  <div className="relative flex items-center justify-center h-12 w-12 rounded-full ring-4 ring-white dark:ring-neutral-900 bg-primary text-white text-xs font-black shadow-xl hover:scale-110 hover:z-30 transition-all cursor-pointer">
+    +12
+  </div>
 </div>`,
         preview: <AvatarGroupPreview />
     },
@@ -1141,6 +1251,30 @@ export const componentsData: UIComponent[] = [
         )
     },
     {
+        id: "newsletter-vibrant",
+        name: "Premium Newsletter",
+        description: "Modern subscription section with glass inputs and vibrant buttons.",
+        category: "Landing Pages",
+        code: `<section className="p-16 bg-black/[0.02] border border-black/5 rounded-[4rem] flex flex-col items-center text-center">
+  <h2 className="text-5xl font-black tracking-tighter mb-4">Stay in the loop.</h2>
+  <p className="text-neutral-500 mb-10 max-w-xl">Join 5,000+ developers getting weekly UI inspiration and components.</p>
+  <div className="flex w-full max-w-md gap-2">
+    <input type="email" placeholder="email@example.com" className="flex-1 bg-white dark:bg-white/5 border border-black/10 px-6 py-4 rounded-2xl" />
+    <button className="bg-primary text-white px-8 py-4 rounded-2xl font-black">Join</button>
+  </div>
+</section>`,
+        preview: (
+            <div className="w-full max-w-[340px] p-8 bg-black/[0.02] dark:bg-white/[0.01] border border-black/[0.03] rounded-[2.5rem] text-center shadow-sm">
+                <div className="text-lg font-black tracking-tighter mb-2">Join us.</div>
+                <div className="text-[10px] text-neutral-500 mb-6">Weekly UI updates.</div>
+                <div className="flex gap-1.5 focus-within:scale-[1.02] transition-transform">
+                    <div className="flex-1 h-10 bg-background border border-black/10 rounded-xl flex items-center px-4 text-[9px] text-neutral-400">Email...</div>
+                    <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white text-[10px]">→</div>
+                </div>
+            </div>
+        )
+    },
+    {
         id: "testimonial-glass",
         name: "Glass Testimonial",
         description: "Elegant testimonial card with blurred profile background and star ratings.",
@@ -1149,7 +1283,7 @@ export const componentsData: UIComponent[] = [
   <div className="flex gap-1 mb-4 text-amber-400">★★★★★</div>
   <p className="text-xl font-bold italic opacity-90 leading-relaxed mb-6">"This library changed how we build prototypes."</p>
   <div className="flex items-center gap-4">
-    <div className="w-12 h-12 bg-primary/20 rounded-full" />
+    <img className="w-12 h-12 rounded-full object-cover" src="https://i.pravatar.cc/100?img=32" alt="Profile" />
     <div>
       <div className="font-black">Jane Cooper</div>
       <div className="text-sm opacity-50 font-bold">CEO at PixelFlow</div>
@@ -1161,7 +1295,7 @@ export const componentsData: UIComponent[] = [
                 <div className="flex gap-0.5 mb-2 text-amber-400 text-[8px]">★★★★★</div>
                 <div className="text-[10px] font-bold italic mb-4 leading-tight">"Beautifully crafted UI."</div>
                 <div className="flex items-center gap-2">
-                    <div className="w-6 h-6 bg-primary/20 rounded-full" />
+                    <img className="w-6 h-6 rounded-full object-cover" src="https://i.pravatar.cc/100?img=32" alt="Profile" />
                     <div>
                         <div className="text-[8px] font-black">Jane C.</div>
                         <div className="text-[6px] opacity-40 uppercase">CEO</div>
@@ -1246,6 +1380,90 @@ export const componentsData: UIComponent[] = [
                 ))}
             </div>
         )
+    },
+    {
+        id: "pricing-toggle",
+        name: "Switchable Pricing",
+        description: "Interactive pricing card with monthly/yearly billing toggle.",
+        category: "Landing Pages",
+        code: `<div className="p-12 bg-white/5 border border-white/10 rounded-[3rem] text-center">
+  <div className="flex bg-black/10 p-1 rounded-2xl w-fit mx-auto mb-10">
+    <button className="px-6 py-2 bg-white text-primary rounded-xl font-bold">Monthly</button>
+    <button className="px-6 py-2 text-neutral-400 font-bold">Yearly</button>
+  </div>
+  <h3 className="text-6xl font-black mb-4">$29</h3>
+  <p className="text-neutral-500 font-bold mb-10">Perfect for growing teams.</p>
+  <button className="w-full py-5 bg-primary text-white font-black rounded-2xl">Start Free Trial</button>
+</div>`,
+        preview: <PricingTogglePreview />
+    },
+    {
+        id: "stats-counter",
+        name: "Counter Section",
+        description: "Animated statistics grid for proving product milestones.",
+        category: "Landing Pages",
+        code: `<div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+  {[
+    { label: 'Happy Users', val: '24,000+' },
+    { label: 'Components', val: '150+' },
+    { label: 'Downloads', val: '1.2M' },
+    { label: 'GitHub Stars', val: '45K' }
+  ].map(s => (
+    <div key={s.label}>
+      <div className="text-5xl font-black text-primary mb-2 tracking-tighter">{s.val}</div>
+      <div className="text-sm font-bold text-neutral-500 uppercase tracking-widest">{s.label}</div>
+    </div>
+  ))}
+</div>`,
+        preview: <StatsCounterPreview />
+    },
+    {
+        id: "team-grid-vibrant",
+        name: "Pro Team Grid",
+        description: "Elegant team showcase with profile pictures and social links.",
+        category: "Landing Pages",
+        code: `<div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+  {[1, 2, 3].map(i => (
+    <div key={i} className="group text-center">
+      <div className="relative mb-6">
+        <div className="absolute inset-0 bg-primary/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
+        <img src={\`https://i.pravatar.cc/300?img=\${i+10}\`} className="relative w-48 h-48 mx-auto rounded-[3rem] object-cover shadow-2xl" />
+      </div>
+      <h4 className="text-2xl font-black">Alex Rivera</h4>
+      <p className="text-primary font-bold text-sm uppercase tracking-widest mb-4">Lead Designer</p>
+    </div>
+  ))}
+</div>`,
+        preview: (
+            <div className="flex gap-4 w-full overflow-x-auto pb-4 custom-scrollbar scale-90 origin-top-left">
+                {[1, 2, 3].map(i => (
+                    <div key={i} className="min-w-[140px] text-center shrink-0">
+                        <img src={`https://i.pravatar.cc/100?img=${i + 15}`} className="w-20 h-20 mx-auto rounded-3xl object-cover mb-3 shadow-md border border-black/5" />
+                        <div className="text-[10px] font-black leading-none">Alex R.</div>
+                        <div className="text-[8px] text-primary font-bold uppercase tracking-tight">Designer</div>
+                    </div>
+                ))}
+            </div>
+        )
+    },
+    {
+        id: "social-proof-hero",
+        name: "Social Proof (Hero)",
+        description: "A combination of overlapping avatars, star ratings, and trust text for landing page headers.",
+        category: "Landing Pages",
+        code: `<div className="flex flex-col items-center gap-4">
+  <div className="flex -space-x-4 overflow-hidden">
+    {[1, 2, 3, 4, 5].map((i) => (
+      <img key={i} className="inline-block h-12 w-12 rounded-full border-4 border-background object-cover hover:scale-110 transition-transform cursor-pointer" src={\`https://i.pravatar.cc/100?img=\${i+10}\`} alt="" />
+    ))}
+    <div className="flex items-center justify-center h-12 w-12 rounded-full border-4 border-background bg-slate-800 text-white text-xs font-black hover:scale-110 transition-transform cursor-pointer">+2k</div>
+  </div>
+  <div className="flex items-center gap-3">
+    <div className="flex text-amber-500 text-lg">★★★★★</div>
+    <span className="text-neutral-500 font-bold">Trusted by 2,000+ creators</span>
+  </div>
+</div>`,
+        preview: <TrustedByPreview />
     }
 ];
 
