@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PasteUI - Premium React Component Library
+
+![Next.js](https://img.shields.io/badge/Next.js-v15+-black?style=flat-square&logo=next.js)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38B2AC?style=flat-square&logo=tailwind-css)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-Latest-0055FF?style=flat-square&logo=framer)
+![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
+![Deploy](https://img.shields.io/badge/Vercel-Deployed-black?style=flat-square&logo=vercel)
+
+![PasteUI Banner](./public/banner.png)
+
+## Overview
+
+**PasteUI** is a curated collection of ultra-premium, copy-and-paste components built with **Next.js**, **Tailwind CSS**, and **Framer Motion**. Designed for developers who value aesthetics and performance, PasteUI provides high-fidelity, interactive components that you can drop directly into your projects.
+
+From glassmorphic cards to complex SaaS dashboards, every component is crafted with micro-interactions and smooth animations to provide a premium user experience.
+
+## Features
+
+- **Premium Design**: Modern aesthetics inspired by the latest design trends including Glassmorphism and Bento grids.
+- **Copy & Paste**: No complex installation. Just find the component you like, copy the code, and paste it.
+- **Smooth Animations**: Powered by Framer Motion and GSAP for a high-end feel.
+- **Dark Mode Ready**: Every component is designed to look stunning in both light and dark modes.
+- **Fully Responsive**: Works perfectly on mobile, tablet, and desktop.
+- **Customizable**: Built with Tailwind CSS utilities for effortless styling.
+
+## Tech Stack
+
+- **Framework**: [Next.js 15+](https://nextjs.org)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/) & [GSAP](https://gsap.com)
+- **Icons**: [Lucide React](https://lucide.dev)
+- **Theming**: [Next Themes](https://github.com/pacocoursey/next-themes)
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js 18.x or later
+- npm / yarn / pnpm
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1.  **Clone the repository**:
+    ```bash
+    git clone https://github.com/your-username/PasteUI.git
+    cd PasteUI
+    ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2.  **Install dependencies**:
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
 
-## Learn More
+3.  **Run the development server**:
+    ```bash
+    npm run dev
+    ```
 
-To learn more about Next.js, take a look at the following resources:
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the component library in action!
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Component Categories
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Navigation**: Floating Docks, Breadcrumbs, Sidebars.
+- **Inputs**: Modern Toggles, OTP Inputs, Floating Labels.
+- **Feedback**: Toasts, Progress Bars, Chat Bubbles.
+- **Landing Pages**: Hero Sections, Pricing Tiers, Bento Grids.
+- **Dashboards**: Stats Cards, Activity Feeds, Data Tables.
+- **And much more...**
 
-## Deploy on Vercel
+## Contributing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Contributions are always welcome! If you have a component you'd like to add, feel free to open a PR.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1.  Fork the Project
+2.  Create your Feature Branch (`git checkout -b feature/AmazingComponent`)
+3.  Commit your Changes (`git commit -m 'Add some AmazingComponent'`)
+4.  Push to the Branch (`git push origin feature/AmazingComponent`)
+5.  Open a Pull Request
+
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+---
+
+<p align="center">
+  Built by Shayan Shah
+</p>
+
