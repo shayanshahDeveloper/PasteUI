@@ -6,7 +6,7 @@
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
 ![Deploy](https://img.shields.io/badge/Vercel-Deployed-black?style=flat-square&logo=vercel)
 
-![PasteUI Banner](./public/banner.png)
+![PasteUI Banner](/public/bannner%20.png)
 
 ## Overview
 
