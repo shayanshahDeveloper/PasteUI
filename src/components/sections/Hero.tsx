@@ -3,6 +3,7 @@ import { ArrowRight, Box, MousePointer2, Zap, Rocket } from "lucide-react";
 import Link from "next/link";
 
 import { BackgroundBoxes } from "../ui/BackgroundBoxes";
+import { CodeTypingAnimation } from "../ui/CodeTypingAnimation";
 
 export const Hero = () => {
     return (
@@ -86,18 +87,7 @@ export const Hero = () => {
                                         ))}
                                     </div>
                                 </div>
-                                <div className="bg-[#1e1e2e] p-6 rounded-2xl border border-[#2a2a3c] font-mono text-sm text-neutral-300 shadow-xl">
-                                    <div className="flex gap-2 mb-4">
-                                        <div className="w-3 h-3 rounded-full bg-[#ff5f56]" />
-                                        <div className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
-                                        <div className="w-3 h-3 rounded-full bg-[#27c93f]" />
-                                    </div>
-                                    <div className="text-purple-400">import</div> <span className="text-amber-200">{"{ Button }"}</span> <div className="text-purple-400">from</div> <span className="text-emerald-400">&quot;@/components/ui/button&quot;</span>;
-                                    <br /><br />
-                                    <div className="text-neutral-500">{"<Button variant=\"shiny\">"}</div>
-                                    <div className="pl-4 text-sky-300">{"Click Me"}</div>
-                                    <div className="text-neutral-500">{"</Button>"}</div>
-                                </div>
+                                <CodeTypingAnimation />
                             </div>
                         </div>
                     </div>
