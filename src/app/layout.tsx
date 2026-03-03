@@ -15,11 +15,44 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "PasteUI | Free Tailwind CSS Components",
-  description: "Copy-paste premium, open-source Tailwind CSS components for your Next.js and React projects. Build stunning UIs in record time.",
+  title: {
+    default: "PasteUI — Premium Tailwind CSS Components",
+    template: "%s | PasteUI"
+  },
+  description: "Copy-paste 100+ premium, open-source Tailwind CSS components. High-performance, interactive, and beautifully designed for Next.js & React.",
+  keywords: ["Tailwind CSS", "React Components", "Next.js UI", "Shadcn UI", "Free Components", "Premium UI Kit", "Copy-Paste Components"],
+  authors: [{ name: "Shayan Shah" }],
+  creator: "Shayan Shah",
+  publisher: "PasteUI",
   icons: {
     icon: "/favicon.png",
   },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://paste-ui-one.vercel.app/", // Replace with domain
+    siteName: "PasteUI",
+    title: "PasteUI | Free Premium Tailwind CSS Components",
+    description: "Launch your next project in record time with our collection of interactive, hand-crafted Tailwind components.",
+    images: [
+      {
+        url: "/favicon.png",
+        width: 800,
+        height: 600,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "PasteUI | Free Premium Tailwind CSS Components",
+    description: "Copy-paste premium components for Next.js & React. Built for innovators.",
+    creator: "@PasteUI",
+    images: ["/favicon.png"],
+  },
+  verification: {
+    google: "xWRUGTHRLjAVuukXJSswdGugu-ozAPrnp3RCyJmixdg",
+  },
+  category: "technology",
 };
 
 export default function RootLayout({
