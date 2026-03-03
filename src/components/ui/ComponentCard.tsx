@@ -5,6 +5,8 @@ import { Check, Copy, Eye, Terminal, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { useTheme } from "next-themes";
+import { prism } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { GridPattern } from "./GridPattern";
 
 interface ComponentCardProps {
@@ -24,6 +26,7 @@ export const ComponentCard: React.FC<ComponentCardProps> = ({
 }) => {
     const [activeTab, setActiveTab] = useState<"preview" | "code">("preview");
     const [copied, setCopied] = useState(false);
+    const { resolvedTheme } = useTheme();
 
     const handleCopy = () => {
         navigator.clipboard.writeText(code.trim());
@@ -100,11 +103,11 @@ export const ComponentCard: React.FC<ComponentCardProps> = ({
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: 20 }}
-                            className="w-full max-h-[280px] overflow-auto rounded-2xl border border-black/5 dark:border-white/5 bg-black/5 dark:bg-black/40 z-10"
+                            className="w-full max-h-[280px] overflow-auto rounded-2xl border border-black/5 dark:border-white/5 bg-zinc-50 dark:bg-black/40 z-10"
                         >
                             <SyntaxHighlighter
                                 language="javascript"
-                                style={atomDark}
+                                style={resolvedTheme === "light" ? prism : atomDark}
                                 customStyle={{
                                     margin: 0,
                                     padding: "1.5rem",

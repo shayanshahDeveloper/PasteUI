@@ -50,7 +50,7 @@ export const Navbar = () => {
                 <div className="hidden md:flex items-center gap-4">
                     <button
                         onClick={() => setIsSearchOpen(true)}
-                        className="flex items-center gap-2 px-3 py-1.5 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-xl text-neutral-500 text-xs font-bold hover:bg-black/10 dark:hover:bg-white/10 transition-all"
+                        className="flex items-center justify-between w-48 px-3 py-1.5 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-xl text-neutral-500 text-xs font-bold hover:bg-black/10 dark:hover:bg-white/10 transition-all"
                     >
                         <span className="opacity-50">Search...</span>
                         <span className="px-1.5 py-0.5 bg-black/5 dark:bg-white/5 rounded border border-black/10 dark:border-white/10 text-[10px]">⌘K</span>
@@ -65,12 +65,6 @@ export const Navbar = () => {
                     >
                         <Github className="w-5 h-5" />
                     </a>
-                    <Link
-                        href="/components"
-                        className="px-6 py-2 bg-primary text-white text-xs font-black rounded-xl hover:shadow-[0_0_20px_rgba(124,58,237,0.4)] transition-all"
-                    >
-                        GET STARTED
-                    </Link>
                 </div>
 
                 {/* Mobile Toggle */}
