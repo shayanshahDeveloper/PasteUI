@@ -67,7 +67,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - **Feedback**: Toasts, Progress Bars, Chat Bubbles.
 - **Landing Pages**: Hero Sections, Pricing Tiers, Bento Grids.
 - **Dashboards**: Stats Cards, Activity Feeds, Data Tables.
-- **And much more....**
+- **And much more.....**
 
 ## Contributing
 
