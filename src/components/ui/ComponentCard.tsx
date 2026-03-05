@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Check, Copy, Eye, Terminal, Sparkles, Code, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
@@ -31,8 +31,20 @@ export const ComponentCard: React.FC<ComponentCardProps> = ({
     const [isModalOpen, setIsModalOpen] = useState(false);
     const { resolvedTheme } = useTheme();
 
+    useEffect(() => {
+        const handleCloseOthers = (e: any) => {
+            if (e.detail !== name) {
+                setIsModalOpen(false);
+            }
+        };
+        window.addEventListener("close-all-code-modals", handleCloseOthers);
+        return () => window.removeEventListener("close-all-code-modals", handleCloseOthers);
+    }, [name]);
+
     const handleCopy = () => {
         if (hasSidebar) {
+            // Close any other open modals before opening this one
+            window.dispatchEvent(new CustomEvent("close-all-code-modals", { detail: name }));
             setIsModalOpen(true);
         } else {
             finalCopy();
