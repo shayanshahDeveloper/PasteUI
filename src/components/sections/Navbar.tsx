@@ -69,10 +69,13 @@ export const Navbar = () => {
 
                 {/* Mobile Toggle */}
                 <div className="md:hidden flex items-center gap-3">
-                    <button onClick={() => setIsSearchOpen(true)} className="text-neutral-500">
-                        <span className="opacity-50 text-xs">Search...</span>
-                    </button>
-                    <ThemeToggle />
+                    <input
+                        type="text"
+                        placeholder="Search..."
+                        onFocus={() => setIsSearchOpen(true)}
+                        readOnly
+                        className="w-32 px-3 py-1.5 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-xl text-neutral-500 placeholder:opacity-50 placeholder:text-xs placeholder:font-bold focus:outline-none cursor-pointer"
+                    />
                     <button className="p-2" onClick={() => setIsOpen(!isOpen)}>
                         {isOpen ? <X /> : <Menu />}
                     </button>
