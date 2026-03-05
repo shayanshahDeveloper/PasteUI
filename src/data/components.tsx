@@ -463,8 +463,8 @@ export const componentsData: UIComponent[] = [
         name: "Circular Progress",
         description: "Animated ring loader.",
         category: "Feedback",
-        code: `<div className="w-12 h-12 border-4 border-black/10 dark:border-white/10 border-t-primary rounded-full animate-spin"></div>`,
-        preview: <div className="w-8 h-8 border-3 border-black/10 dark:border-white/10 border-t-primary rounded-full animate-spin"></div>
+        code: `<div className="w-12 h-12 border-4 border-black/5 dark:border-white/10 border-t-primary dark:border-t-purple-400 rounded-full animate-spin"></div>`,
+        preview: <div className="w-8 h-8 border-3 border-black/5 dark:border-white/10 border-t-primary dark:border-t-purple-400 rounded-full animate-spin"></div>
     },
 
     // --- NAVIGATION ---
