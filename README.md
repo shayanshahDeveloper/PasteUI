@@ -86,6 +86,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ---
 
 <p align="center">
-  Built by Shayan Shah
+  Developed by Shayan Shah
 </p>
 
