@@ -128,18 +128,7 @@ export default function DocsPage() {
                             })}
                         </div>
 
-                        {/* CTA */}
-                        <div className="mt-40 p-16 rounded-[3rem] bg-gradient-to-br from-primary/20 via-transparent to-transparent border border-black/5 dark:border-white/5 text-center relative overflow-hidden group">
-                            <div className="absolute inset-0 bg-grid-white opacity-0 dark:opacity-[0.03] pointer-events-none"></div>
-                            <Zap className="w-12 h-12 text-primary mx-auto mb-8 animate-pulse" />
-                            <h3 className="text-4xl font-black mb-6 tracking-tight">Ready to build?</h3>
-                            <p className="text-neutral-500 mb-10 max-w-md mx-auto font-medium text-lg leading-relaxed">
-                                Join over 5,000 developers building better interfaces faster than ever.
-                            </p>
-                            <button className="px-10 py-5 bg-foreground text-background font-black rounded-2xl hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-all flex items-center justify-center gap-3 mx-auto shadow-2xl">
-                                BROWSE LIBRARY <Terminal className="w-5 h-5" />
-                            </button>
-                        </div>
+
                     </div>
                 </div>
             </div>
