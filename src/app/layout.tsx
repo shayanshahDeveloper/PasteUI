@@ -64,6 +64,9 @@ export const metadata: Metadata = {
   verification: {
     google: "xWRUGTHRLjAVuukXJSswdGugu-ozAPrnp3RCyJmixdg",
   },
+  other: {
+    "google-adsense-account": "ca-pub-1556719196816220",
+  },
   category: "technology",
 };
 
@@ -72,14 +75,6 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      {/* Google AdSense */}
-      <Script
-        async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1556719196816220"
-        crossOrigin="anonymous"
-        strategy="afterInteractive"
-      />
-
       {/* Google Analytics */}
       <Script
         strategy="afterInteractive"
